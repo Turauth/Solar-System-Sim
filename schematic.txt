@@ -1,0 +1,14 @@
+Make each planet have a 
+position, a 
+mass, and a 
+velocity acting on it based on the forces acting on it, and a 
+method that calculates the forces acting on that planet for each step.
+
+Classes:
+CelestialBody
+    Star
+    Planet
+        Moon
+
+Main:
+Instantiate CelestialBody objects with default positions.
