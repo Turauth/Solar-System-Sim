@@ -1,14 +1,51 @@
-Make each planet have a 
-position, a 
-mass, and a 
-velocity acting on it based on the forces acting on it, and a 
-method that calculates the forces acting on that planet for each step.
-
 Classes:
 CelestialBody
     Star
     Planet
         Moon
 
+Make each CelestialBody have an
+    attribute name, an
+    attribute informational text associated with each Planet object, an
+    attribute display size constant that will be used (ChatGPT), and an
+    attribute position that is variable but has an initial value.
+
+Make each Planet additionally have an
+    attribute velocity that is variable, an
+    attribute mass that is constant, a
+    method that calculates the force acting on that planet for each step, a
+    method that changes the velocity of the object based on the forces acting on the corresponding planet, and a
+    method that changes the position of the object.
+
 Main:
-Instantiate CelestialBody objects with default positions.
+Instantiate Star, Planet, and Moon objects with informational text associated with each planet, default 
+positions, and constant masses.
+
+Using raylib,
+    Start displaying objects in the GUI,
+    cause the objects to continue to be displayed as their position changes, and
+    cause the informational text for each object be displayed when the cursor hovers over each object.
+
+For each step of time,
+    for each Planet,
+        Update physics by
+            Calculating the force on the planet,
+            Using the calculated forces to calculate the velocities of each planet, and
+            Use the calculated velocites to change the position of each planet,
+        Render the Planet using raylib (ChatGPT), and
+        If the mouse is hovering over the Planet, display the informational text for the Planet (ChatGPT).
+
+// ChatGPT
+It will probably be simpler to calculate the force on each planet to be the force exerted on it by the
+sun except for the earth and the moon, which could also include the force those two bodies exert on each
+other.
+
+Checking whether the cursor is hovering over a CelestialBody object could be a class method which checks
+whether the cursor is within a certain radius of the object.
+
+It may be good to initially program the orbits to be circular for simplicity before programming them to be
+eliptical.
+
+// Questions
+Is it useful to include a Star class useful?
+Could classes Planet and Moon be combined into class Orbiter?
