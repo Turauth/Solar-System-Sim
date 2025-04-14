@@ -6,12 +6,12 @@ CelestialBody
 Make each CelestialBody have an
     attribute name, an
     attribute informational text associated with each Planet object, an
-    attribute display size constant that will be used (ChatGPT), and an
+    attribute display size constant that will be used (ChatGPT), an
+    attribute mass that is constant, and an
     attribute position that is variable but has an initial value.
 
 Make each Planet additionally have an
-    attribute velocity that is variable, an
-    attribute mass that is constant, a
+    attribute velocity that is variable,
     method that calculates the force acting on that planet for each step, a
     method that changes the velocity of the object based on the forces acting on the corresponding planet, and a
     method that changes the position of the object.

@@ -13,9 +13,12 @@ SRCS = solsys.cpp celestialBody.cpp planet.cpp moon.cpp
 #Define the object files.
 OBJS = $(SRCS:.cpp=.o)
 
+# Raylib and system libs
+LIBS = -lraylib -lm -ldl -lpthread -lGL -lrt -lX11
+
 # Rule to build the target executable.
 $(TARGET): $(OBJS)
-    $(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS)
+    $(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS) $(LIBS)
 
 # Rule to build object files.
 %.o %.cpp
@@ -23,4 +26,4 @@ $(TARGET): $(OBJS)
 
 # Clean up build files
 clean:
-    rm -f $ (OBJS) # $(TARGET)
+    rm -f $ (OBJS) $(TARGET)
