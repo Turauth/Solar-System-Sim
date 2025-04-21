@@ -18,10 +18,13 @@ Planet::Planet(string name, raylib::Vector2 position, raylib::Vector2 momentum, 
 
 // Calculates the current force on the planet and updates the momentum accordingly
 int Planet::updateMomentum(double deltaTime) {
-	// TODO: Implement gravity equation
+	double magnitude = -G * (mass * orbitTarget.mass) / pow(orbitTarget.position.Distance(position), 2);
+	raylib::Vector2 direction = (orbitTarget.position - position).Normalize();
+
+	momentum += direction.Scale(magnitude * deltaTime);
 }
 
 // Updates the position of the planet based on its current momentum
 int Planet::updatePosition(double deltaTime) {
-	// TODO: Implement position update equation
+	position += (momentum / mass) * deltaTime;
 }
