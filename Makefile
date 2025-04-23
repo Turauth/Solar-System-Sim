@@ -1,3 +1,8 @@
+# Author: J. Woychuk
+
+# The content of this slide was mostly taken from Mr. Smith's slides and the ChatGPT interaction that will
+# be referenced in the README.
+
 # Define the compiler.
 CXX = g++
 

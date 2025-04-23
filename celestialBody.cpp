@@ -1,7 +1,9 @@
+// Authors: C. Hohne, J. Woychuk
+
 #include "celestialBody.h"
 
 // Constructor function for celestial body
-CelestialBody::CelestialBody(string name, raylib::Vector2 position, int mass, int radius, Color color, string info) {
+CelestialBody::CelestialBody(string name, Vector2 position, int mass, int radius, Color color, string info) {
 	this->name = name;
 	this->position = position;
 	this->mass = mass;
@@ -13,7 +15,7 @@ CelestialBody::CelestialBody(string name, raylib::Vector2 position, int mass, in
 // Empty default constructor to prevent planet.cpp from throwing a fit
 CelestialBody::CelestialBody() {
 	name = "";
-	position = raylib::Vector2().Zero();
+	position = Vector2Zero(); // Vector with components value 0.0f.
 	mass = 0;
 	radius = 0;
 	color = Color();
