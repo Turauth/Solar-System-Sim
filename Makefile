@@ -23,12 +23,12 @@ LIBS = -lraylib -lm -ldl -lpthread -lGL -lrt -lX11
 
 # Rule to build the target executable.
 $(TARGET): $(OBJS)
-    $(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS) $(LIBS)
+	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS) $(LIBS)
 
 # Rule to build object files.
-%.o %.cpp
-    $(CXX) $(CXXFLAGS) -c $< -o $@
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 # Clean up build files
 clean:
-    rm -f $ (OBJS) $(TARGET)
+	rm -f $(OBJS) $(TARGET)

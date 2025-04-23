@@ -14,16 +14,35 @@ int main(void) {
     // Make vectors to contain some constant values to be used when initializing the planets
     // (https://nssdc.gsfc.nasa.gov/planetary/factsheet/sunfact.html; https://nssdc.gsfc.nasa.gov/planetary/factsheet/). This 
     // is purely for readability and organization.
+
     // (MASS: kilograms, DISTANCE: meters, TIME: seconds)
+
     // Perihelia are the distances to the Sun at the closest point in the orbit of each planet. The perigree of the moon will
-    // be labeled as its parahelion for container uniformity.
+    // be labeled as its parahelion for container uniformity. The perihelia and perigree are scaled down by a factor of 10^6.
     // For consistency, all planets will begin at their perihelia.
+
+    // Max orbital speeds are taken from https://starlust.org/orbital-parameters-glossary/ and 
+    // https://nssdc.gsfc.nasa.gov/planetary/factsheet/plutofact.html.
+
+    //For initPositions, a window size of of 1600x800 is assumed.
+
     std::vector<std::string> names{"Mercury", "Venus", "Earth", "Moon", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune",
         "Pluto", "Sun"};
 
-    std::vector<const double> perihelia{}; // This vector is not yet populated.
-    std::vector<const double> maxOrbVel{}; // This vector is not yet populated.
-    std::vector<Vector2> initPositions{}; // This vector is not yet populated.
+    std::vector<const double> perihelia{46, 107.5, 147.1, .363, 206.7, 740.6, 1357.6, 2732.7, 4471.1, 4436.8};
+    std::vector<const double> maxOrbVel{58980, 35260, 30290, 26500, 13720, 10180, 7110, 5500, 6100};
+    std::vector<Vector2> initPositions{
+        {800 + perihelia[0], 400},
+        {800 + perihelia[1], 400},
+        {800 + perihelia[2], 400},
+        {800 + perihelia[3], 400},
+        {800 + perihelia[4], 400},
+        {800 + perihelia[5], 400},
+        {800 + perihelia[6], 400},
+        {800 + perihelia[7], 400},
+        {800 + perihelia[8], 400},
+        {800 + perihelia[9], 400},
+        {800, 400}};
     std::vector<Vector2> initMomenta{}; // This vector is not yet populated.
     
     std::vector<const double> masses{33e22, 487e22, 597e22, 73e21, 642e21, 1898e24, 568e24, 868e23, 102e24, 
@@ -57,6 +76,9 @@ int main(void) {
     Planet uranus(names[7], initPositions[7], initMomenta[7], sun, masses[7], radii[7], colors[7], info[7]);
     Planet neptune(names[8], initPositions[8], initMomenta[8], sun, masses[8], radii[8], colors[8], info[8]);
     Planet pluto(names[9], initPositions[9], initMomenta[9], sun, masses[9], radii[9], colors[9], info[9]);
+
+    // The following line was made to test compilation which is not working yet.
+    std::cout << initPositions[0].y << std::endl;
     
     return 0;
 }
