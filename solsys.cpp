@@ -61,17 +61,17 @@ int main()
     std::vector<int> radii{4879 / 2, 12104 / 2, 12756 / 2, 3475 / 2, 6792 / 2, 142984 / 2, 120536 / 2, 51118 / 2, 49528 / 2, 2376 / 2, 695700};
     std::vector<Color> colors{BROWN, YELLOW, GREEN, GRAY, RED, ORANGE, RED, BLUE, BLUE, BLACK, YELLOW};
     std::vector<std::string> info{
-        "Name: Mercury\nMass: .33e24 kg\nDiameter: 4879 m",
+        "Name: Mercury\nMass: 3.3e23 kg\nDiameter: 4879 m",
         "Name: Venus\nMass: 4.87e24 kg\nDiameter: 12,104 m",
         "Name: Earth\nMass: 5.97e24 kg\nDiameter: 12,756 m",
-        "Name: Moon\nMass: .073e24 kg\nDiameter: 3475 m",
-        "Name: Mars\nMass: .642e24 kg\nDiameter: 6792 m",
-        "Name: Jupiter\nMass: 1898e24 kg\nDiameter: 142,984 m",
-        "Name: Saturn\nMass: 568e24 kg\nDiameter: 120,536 m",
-        "Name: Uranus\nMass: 86.8e24 kg\nDiameter: 51,118 m",
-        "Name: Neptune\nMass: 102e24 kg\nDiameter: 49,528 m",
-        "Name: Pluto\nMass: .013e24 kg\nDiameter: 2376 m",
-        "Name: Sun\nMass: 1,988,400e24 kg\nDiameter: 1,391,400 m",
+        "Name: Moon\nMass: 7.3e22 kg\nDiameter: 3475 m",
+        "Name: Mars\nMass: 6.42e23 kg\nDiameter: 6792 m",
+        "Name: Jupiter\nMass: 1.898e27 kg\nDiameter: 142,984 m",
+        "Name: Saturn\nMass: 5.68e26 kg\nDiameter: 120,536 m",
+        "Name: Uranus\nMass: 8.68e25 kg\nDiameter: 51,118 m",
+        "Name: Neptune\nMass: 1.02e26 kg\nDiameter: 49,528 m",
+        "Name: Pluto\nMass: 1.3e22 kg\nDiameter: 2376 m",
+        "Name: Sun\nMass: 1.9884e30 kg\nDiameter: 1,391,400 m",
     };
 
     // Instantiate CelestialBody and Planet objects.
