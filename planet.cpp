@@ -19,7 +19,7 @@ Planet::Planet(string name, Vector2 position, Vector2 momentum, CelestialBody or
 }
 
 // Calculates the current force on the planet and updates the momentum accordingly
-int Planet::updateMomentum(double deltaTime) {
+void Planet::updateMomentum(double deltaTime) {
 	double magnitude = -G * (mass * orbitTarget.mass) / pow(Vector2Distance(orbitTarget.position, position), 2);
 	Vector2 direction = Vector2Normalize(orbitTarget.position - position);
 
@@ -27,6 +27,6 @@ int Planet::updateMomentum(double deltaTime) {
 }
 
 // Updates the position of the planet based on its current momentum
-int Planet::updatePosition(double deltaTime) {
+void Planet::updatePosition(double deltaTime) {
 	position += (momentum / mass) * deltaTime;
 }

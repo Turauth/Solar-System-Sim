@@ -18,9 +18,9 @@ public:
 
     // Calculates the current force on the planet and updates the momentum accordingly
     // (double: deltaTime)
-    int updateMomentum(double);
+    void updateMomentum(double);
 
     // Updates the position of the planet based on its current momentum
     // (double: deltaTime)
-    int updatePosition(double);
+    void updatePosition(double);
 };

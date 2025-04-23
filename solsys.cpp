@@ -9,10 +9,11 @@
 #include <iostream>
 #include <vector>
 
-int main(void) {
+int main()
+{
 
     // Make vectors to contain some constant values to be used when initializing the planets
-    // (https://nssdc.gsfc.nasa.gov/planetary/factsheet/sunfact.html; https://nssdc.gsfc.nasa.gov/planetary/factsheet/). This 
+    // (https://nssdc.gsfc.nasa.gov/planetary/factsheet/sunfact.html; https://nssdc.gsfc.nasa.gov/planetary/factsheet/). This
     // is purely for readability and organization.
 
     // (MASS: kilograms, DISTANCE: meters, TIME: seconds)
@@ -21,16 +22,18 @@ int main(void) {
     // be labeled as its parahelion for container uniformity. The perihelia and perigree are scaled down by a factor of 10^6.
     // For consistency, all planets will begin at their perihelia.
 
-    // Max orbital speeds are taken from https://starlust.org/orbital-parameters-glossary/ and 
+    // Max orbital speeds are taken from https://starlust.org/orbital-parameters-glossary/ and
     // https://nssdc.gsfc.nasa.gov/planetary/factsheet/plutofact.html.
 
-    //For initPositions, a window size of of 1600x800 is assumed.
+    // For initPositions, a window size of of 1600x800 is assumed, but perihelia and pedigree scaling are not yet considered.
 
     std::vector<std::string> names{"Mercury", "Venus", "Earth", "Moon", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune",
-        "Pluto", "Sun"};
+                                   "Pluto", "Sun"};
+    std::vector<float> masses{33e22, 487e22, 597e22, 73e21, 642e21, 1898e24, 568e24, 868e23, 102e24,
+                               13e21, 1988400e24};
 
-    std::vector<const double> perihelia{46, 107.5, 147.1, .363, 206.7, 740.6, 1357.6, 2732.7, 4471.1, 4436.8};
-    std::vector<const double> maxOrbVel{58980, 35260, 30290, 26500, 13720, 10180, 7110, 5500, 6100};
+    std::vector<float> perihelia{46, 107.5, 147.1, .363, 206.7, 740.6, 1357.6, 2732.7, 4471.1, 4436.8};
+    std::vector<float> maxOrbVel{58980, 35260, 30290, 26500, 13720, 10180, 7110, 5500, 6100};
     std::vector<Vector2> initPositions{
         {800 + perihelia[0], 400},
         {800 + perihelia[1], 400},
@@ -43,11 +46,19 @@ int main(void) {
         {800 + perihelia[8], 400},
         {800 + perihelia[9], 400},
         {800, 400}};
-    std::vector<Vector2> initMomenta{}; // This vector is not yet populated.
-    
-    std::vector<const double> masses{33e22, 487e22, 597e22, 73e21, 642e21, 1898e24, 568e24, 868e23, 102e24, 
-        13e21,1988400e24};
-    std::vector<int> radii{4879/2, 12104/2, 12756/2, 3475/2, 6792/2, 142984/2, 120536/2, 51118/2, 49528/2, 2376/2, 695700};
+    std::vector<Vector2> initMomenta{
+        {0, -masses[0]*maxOrbVel[0]},
+        {0, -masses[1]*maxOrbVel[1]},
+        {0, -masses[2]*maxOrbVel[2]},
+        {0, -masses[3]*maxOrbVel[3]},
+        {0, -masses[4]*maxOrbVel[4]},
+        {0, -masses[5]*maxOrbVel[5]},
+        {0, -masses[6]*maxOrbVel[6]},
+        {0, -masses[7]*maxOrbVel[7]},
+        {0, -masses[8]*maxOrbVel[8]},
+        {0, -masses[9]*maxOrbVel[9]}};
+
+    std::vector<int> radii{4879 / 2, 12104 / 2, 12756 / 2, 3475 / 2, 6792 / 2, 142984 / 2, 120536 / 2, 51118 / 2, 49528 / 2, 2376 / 2, 695700};
     std::vector<Color> colors{BROWN, YELLOW, GREEN, GRAY, RED, ORANGE, RED, BLUE, BLUE, BLACK, YELLOW};
     std::vector<std::string> info{
         "Name: Mercury\nMass: .33e24 kg\nDiameter: 4879 m",
@@ -62,7 +73,6 @@ int main(void) {
         "Name: Pluto\nMass: .013e24 kg\nDiameter: 2376 m",
         "Name: Sun\nMass: 1,988,400e24 kg\nDiameter: 1,391,400 m",
     };
-
 
     // Instantiate CelestialBody and Planet objects.
     CelestialBody sun(names[10], initPositions[10], masses[10], radii[10], colors[10], info[10]);
@@ -79,6 +89,6 @@ int main(void) {
 
     // The following line was made to test compilation which is not working yet.
     std::cout << initPositions[0].y << std::endl;
-    
+
     return 0;
 }

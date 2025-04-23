@@ -13,7 +13,7 @@ CXXFLAGS = -Wall -std=c++17
 TARGET = solsys
 
 # Define the source files.
-SRCS = solsys.cpp celestialBody.cpp planet.cpp moon.cpp
+SRCS = solsys.cpp celestialBody.cpp planet.cpp
 
 #Define the object files.
 OBJS = $(SRCS:.cpp=.o)
