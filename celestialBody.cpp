@@ -2,22 +2,31 @@
 
 #include "celestialBody.h"
 
-// Constructor function for celestial body
-CelestialBody::CelestialBody(string name, Vector2 position, int mass, int radius, Color color, string info) {
+// Implement the specified constructor.
+CelestialBody::CelestialBody(string name, Vector2 position, float size, Color color, string info)
+{
 	this->name = name;
 	this->position = position;
-	this->mass = mass;
-	this->radius = radius;
+	this->size = size;
 	this->color = color;
 	this->info = info;
 }
 
-// Empty default constructor to prevent planet.cpp from throwing a fit
-CelestialBody::CelestialBody() {
+// Implement the empty default constructor to prevent planet.cpp from throwing a fit
+CelestialBody::CelestialBody()
+{
 	name = "";
 	position = Vector2Zero(); // Vector with components value 0.0f.
-	mass = 0;
-	radius = 0;
+	size = 0;
 	color = Color();
 	info = "";
+}
+
+void CelestialBody::RenderInfo(Vector2 mousePos) const {
+	if (Vector2Distance(position, mousePos) <= size) {
+		Vector2 corner = { position.x - size - 20, position.y - (size + 90) };
+
+		DrawRectangle(corner.x, corner.y, 200, 80, ColorAlpha(BLACK, 0.75f));
+		DrawText(TextFormat("%s", info.c_str()), corner.x + 5, corner.y + 5, 20, RAYWHITE);
+	}
 }

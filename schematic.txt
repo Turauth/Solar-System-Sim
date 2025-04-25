@@ -37,4 +37,63 @@ sun except for the earth and the moon, which could also include the force those 
 other.
 
 Checking whether the cursor is hovering over a CelestialBody object could be a class method which checks
-whether the cursor is within a certain radius of the object.
+whether the cursor is within a certain radius of the object.'
+
+
+
+
+
+
+
+
+
+
+Graphics
+
+1600x800 window
+
+The sun is in the center.
+
+Each planet size is scaled on a scale from 1 to 10 based on the inspection of their relative radii. Also based
+on inspection, the scaled value can be multiplied by 5 pixels of radius to fit in a window with a width of 1000 pixels.
+Each tenth corresponds to 5 pixels of radius, so the biggest planet would appear as 100 pixels in diameter.
+
+Scaled Radii:
+1 moon, pluto
+2 mercury
+3 mars
+4 venus, earth
+5 uranus, neptune
+6 jupiter, saturn
+7 sun
+
+Scaled Perihelia:
+
+std::vector<float> scaledRadii{};
+
+
+std::vector<float> scaledPositions{
+    position[0]/
+}
+
+std::Vector2<float>
+
+Ideas
+
+ std::vector<double> periheliaPix{
+        6.65e-61 * pow(perihelia[0], 5) + -1.69e-47 * pow(perihelia[0], 4) + 1.16e-34 * pow(perihelia[0], 3) + -3.06e-22 * pow(perihelia[0], 2) + 3.69e-10 * perihelia[0] + 42.6,
+        6.65e-61 * pow(perihelia[1], 5) + -1.69e-47 * pow(perihelia[1], 4) + 1.16e-34 * pow(perihelia[1], 3) + -3.06e-22 * pow(perihelia[1], 2) + 3.69e-10 * perihelia[1] + 42.6,
+        6.65e-61 * pow(perihelia[2], 5) + -1.69e-47 * pow(perihelia[2], 4) + 1.16e-34 * pow(perihelia[2], 3) + -3.06e-22 * pow(perihelia[2], 2) + 3.69e-10 * perihelia[2] + 42.6,
+        6.65e-61 * pow(perihelia[3], 5) + -1.69e-47 * pow(perihelia[3], 4) + 1.16e-34 * pow(perihelia[3], 3) + -3.06e-22 * pow(perihelia[3], 2) + 3.69e-10 * perihelia[3] + 42.6,
+        6.65e-61 * pow(perihelia[4], 5) + -1.69e-47 * pow(perihelia[4], 4) + 1.16e-34 * pow(perihelia[4], 3) + -3.06e-22 * pow(perihelia[4], 2) + 3.69e-10 * perihelia[4] + 42.6,
+        6.65e-61 * pow(perihelia[5], 5) + -1.69e-47 * pow(perihelia[5], 4) + 1.16e-34 * pow(perihelia[5], 3) + -3.06e-22 * pow(perihelia[5], 2) + 3.69e-10 * perihelia[5] + 42.6,
+        6.65e-61 * pow(perihelia[6], 5) + -1.69e-47 * pow(perihelia[6], 4) + 1.16e-34 * pow(perihelia[6], 3) + -3.06e-22 * pow(perihelia[6], 2) + 3.69e-10 * perihelia[6] + 42.6,
+        6.65e-61 * pow(perihelia[7], 5) + -1.69e-47 * pow(perihelia[7], 4) + 1.16e-34 * pow(perihelia[7], 3) + -3.06e-22 * pow(perihelia[7], 2) + 3.69e-10 * perihelia[7] + 42.6,
+        6.65e-61 * pow(perihelia[8], 5) + -1.69e-47 * pow(perihelia[8], 4) + 1.16e-34 * pow(perihelia[8], 3) + -3.06e-22 * pow(perihelia[8], 2) + 3.69e-10 * perihelia[8] + 42.6,
+        6.65e-61 * pow(perihelia[9], 5) + -1.69e-47 * pow(perihelia[9], 4) + 1.16e-34 * pow(perihelia[9], 3) + -3.06e-22 * pow(perihelia[9], 2) + 3.69e-10 * perihelia[9] + 42.6,
+        };
+
+// std::vector<int> radii{2440, 6052, 6378, 1738, 3396, 71492, 60268, 25559, 24764, 1188, 695700};
+    // std::vector<float> pixPerihelia{45, 65, 90, 110, 130, 170, 225, 230, 335, 360};
+
+    // std::vector<float> perihelia{46e9, 107.5e9, 147.1e9, 147.1e9 + .363e9, 206.7e9, 740.6e9, 1357.6e9, 2732.7e9, 4471.1e9, 4436.8e9};

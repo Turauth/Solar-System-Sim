@@ -1,39 +1,34 @@
 // Authors: C. Hohne, J. Woychuk
 
 #include "planet.h"
+#include <cmath>
 
-// Gravitational Constant
-const double G = 6.6743e-11;
-
-// Constructor function for planet
-Planet::Planet(string name, Vector2 position, Vector2 momentum, std::vector<CelestialBody> orbitTargets, int mass, int radius, Color color, string info) {
+// The following code implements the specified constructor.
+Planet::Planet(string name, Vector2 position, float angle, float velocity, int radius, float size, Color color, 
+	string info)
+{
 	this->name = name;
 	this->position = position;
-	this->mass = mass;
+	this->angle = angle;
 	this->radius = radius;
+	this->size = size;
+	this->velocity = velocity;
 	this->color = color;
 	this->info = info;
-
-	this->orbitTargets = orbitTargets;
-	this->momentum = momentum;
 }
 
-// Calculates the current net force on the planet and updates the momentum accordingly
-void Planet::updateMomentum(double deltaTime) {
-
-	// Iterate over each object this planet is orbiting and calculate the gravitational force
-	Vector2 netForce = Vector2Zero();
-	for (const CelestialBody& orbitTarget : orbitTargets) {
-		double magnitude = -G * (mass * orbitTarget.mass) / pow(Vector2Distance(orbitTarget.position, position), 2);
-		Vector2 direction = Vector2Normalize(orbitTarget.position - position);
-		netForce += Vector2Scale(direction, magnitude);
-	}
-
-	// Update momentum based on the net force and timestep
-	momentum += Vector2Scale(netForce, deltaTime);
+// The idea and code for movement of the circles is taken from 
+// https://terminalroot.com/how-to-create-a-solar-system-animation-with-cpp-and-raylib/.
+void Planet::updatePosition(CelestialBody orbitTarget)
+{
+	angle += velocity * .02f;
+	position = {
+        orbitTarget.position.x + std::cos(angle) * radius,
+        orbitTarget.position.y + std::sin(angle) * radius,
+    };
 }
 
-// Updates the position of the planet based on its current momentum
-void Planet::updatePosition(double deltaTime) {
-	position += (momentum / mass) * deltaTime;
+void Planet::updateMoon()
+{
+	angle += velocity * .009f;
 }
