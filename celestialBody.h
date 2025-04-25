@@ -17,6 +17,9 @@ public:
 	
 	// Empty default constructor to prevent planet.cpp from throwing a fit
 	CelestialBody();
+
+	void CelestialBody::RenderInfo(Vector2 mousePosition) const;
+
 	Vector2 position;
 	Color color;
 	float size;

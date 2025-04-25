@@ -52,26 +52,45 @@ int main()
 
     InitWindow(SCREENWIDTH, SCREENHEIGHT, "Solar System Simulation");
     SetTargetFPS(60);
+    bool isPaused = false;
 
     // Make a loop that runs continuously until the window close button or ESC key are pressed.
     while (!WindowShouldClose())
     {
+        // Input
+        if (IsKeyPressed(KEY_SPACE)) {
+            isPaused = !isPaused;
+        }
+
         // Draw stuff.
         BeginDrawing();
-        ClearBackground(RAYWHITE);
+        ClearBackground(BLACK);
+
+        SetMouseOffset(0, 28);
+        Vector2 mousePos = GetMousePosition();
 
         DrawCircleV(sun.position, sun.size, sun.color);
-        for (int i{0}; i < 1; ++i)
+        for (int i{0}; i < 7; ++i)
         {            
-            planets[i].updatePosition();
+            if (!isPaused) {
+                planets[i].updatePosition();
+            }
             DrawCircleV(planets[i].position, planets[i].size, planets[i].color);
+            planets[i].RenderInfo(mousePos);
         }
+
+        // Render information after planets have been drawn
+        for (int i{ 0 }; i < 7; ++i)
+        {
+            planets[i].RenderInfo(mousePos);
+        }
+        sun.RenderInfo(mousePos);
 
         EndDrawing();
     }
 
     // When the window close button or ESC key are pressed, close the window and OpenGL context.
-    CloseWindow(); 
+    CloseWindow();
 
     std::cout << planets[0].position.x << std::endl;
     std::cout << planets[0].position.y << std::endl;
