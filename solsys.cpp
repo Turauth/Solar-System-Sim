@@ -52,13 +52,22 @@ int main()
 
     InitWindow(SCREENWIDTH, SCREENHEIGHT, "Solar System Simulation");
     SetTargetFPS(60);
+    bool isPaused = false;
 
     // Make a loop that runs continuously until the window close button or ESC key are pressed.
     while (!WindowShouldClose())
     {
+        // Input
+        if (IsKeyPressed(KEY_SPACE)) {
+            isPaused = !isPaused;
+        }
+
         // Draw stuff.
         BeginDrawing();
         ClearBackground(BLACK);
+
+        SetMouseOffset(0, 28);
+        Vector2 mousePos = GetMousePosition();
 
         DrawCircleV(sun.position, sun.size, sun.color);
         for (int i{0}; i < 11; ++i)
@@ -72,9 +81,14 @@ int main()
             }
 
             DrawCircleV(planets[i].position, planets[i].size, planets[i].color);
-            
-            
         }
+      
+        // Render information after planets have been drawn
+        for (int i{ 0 }; i < 11; ++i)
+        {
+            planets[i].RenderInfo(mousePos);
+        }
+        sun.RenderInfo(mousePos);
 
         EndDrawing();
     }

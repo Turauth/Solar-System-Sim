@@ -17,6 +17,16 @@ CelestialBody::CelestialBody()
 {
 	name = "";
 	position = Vector2Zero(); // Vector with components value 0.0f.
+	size = 0;
 	color = Color();
 	info = "";
+}
+
+void CelestialBody::RenderInfo(Vector2 mousePos) const {
+	if (Vector2Distance(position, mousePos) <= size) {
+		Vector2 corner = { position.x - size - 20, position.y - (size + 90) };
+
+		DrawRectangle(corner.x, corner.y, 200, 80, ColorAlpha(BLACK, 0.75f));
+		DrawText(TextFormat("%s", info.c_str()), corner.x + 5, corner.y + 5, 20, RAYWHITE);
+	}
 }

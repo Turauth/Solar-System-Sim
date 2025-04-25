@@ -18,6 +18,8 @@ public:
 
 	// Define a specified constructor.
 	CelestialBody(string name, Vector2 position, float size, Color color, string info);
+  
+  void CelestialBody::RenderInfo(Vector2 mousePosition) const;
 	
 	// Define an empty default constructor to prevent planet.cpp from throwing a fit.
 	CelestialBody();
