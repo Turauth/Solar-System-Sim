@@ -1,5 +1,9 @@
 // Authors: C. Hohne, J. Woychuk
 
+// Description: This Class header file declares the members of the CelestialBody class, including attributes 
+// position, color, size, name, and info. Both a specified and a default constructor are declared, as well as
+// a function to render informational text on the graphics window.
+
 #pragma once
 #include "raylib.h"
 #include "rlgl.h"
@@ -17,13 +21,13 @@ public:
 	string name;
 	string info;
 
-	// Define a specified constructor.
+	// Declare a specified constructor.
 	CelestialBody(string name, Vector2 position, float size, Color color, string info);
-  
-	// Checks if the mouse position is overlapping with the celestial body and draws a textbox with its info
-	// (Vector2: mousePosition, Vector2: position)
-	void RenderInfo(Vector2 mousePosition, Vector2 position) const;
-	
-	// Define an empty default constructor to prevent planet.cpp from throwing a fit.
+
+	// Declare an empty default constructor to prevent planet.cpp from throwing a fit.
 	CelestialBody();
+  
+	// Declare the class function that will check whether the mouse position is overlapping with a CelestialBody object 
+	// and draw a textbox with its info if it is.
+	void RenderInfo(Vector2 mousePosition, Vector2 position) const;
 };
