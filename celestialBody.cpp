@@ -2,8 +2,9 @@
 
 #include "celestialBody.h"
 
-// Constructor function for celestial body
-CelestialBody::CelestialBody(string name, Vector2 position, float size, Color color, string info) {
+// Implement the specified constructor.
+CelestialBody::CelestialBody(string name, Vector2 position, float size, Color color, string info)
+{
 	this->name = name;
 	this->position = position;
 	this->size = size;
@@ -11,8 +12,9 @@ CelestialBody::CelestialBody(string name, Vector2 position, float size, Color co
 	this->info = info;
 }
 
-// Empty default constructor to prevent planet.cpp from throwing a fit
-CelestialBody::CelestialBody() {
+// Implement the empty default constructor to prevent planet.cpp from throwing a fit
+CelestialBody::CelestialBody()
+{
 	name = "";
 	position = Vector2Zero(); // Vector with components value 0.0f.
 	color = Color();

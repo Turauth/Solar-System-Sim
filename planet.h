@@ -5,21 +5,20 @@
 
 class Planet : public CelestialBody {
     
-// Define a private attributes for 
+// Define a private attributes for orbitTarget, angle, velocity, and radius.
 private:
     CelestialBody orbitTarget;
     float angle;
     float velocity;
-
-// Define public methods to 
-public:
     float radius;
 
+// Define public methods to make Planet objects and 
+public:
     // The following specified constructor is designed to make Planet objects.
-    Planet(string name, Vector2 position, CelestialBody orbitTarget, float angle, float velocity, int radius, float size,
+    Planet(string name, Vector2 position, float angle, float velocity, int radius, float size,
         Color color, string info);
 
-    // Updates the position of the planet based on its current momentum
-    // (double: deltaTime)
-    void updatePosition();
+    // The following methods update the positions of the bodies based on the unit circle.
+    void updatePosition(CelestialBody orbitTarget);
+    void updateMoon();
 };
