@@ -3,10 +3,9 @@
 #include "celestialBody.h"
 
 // Constructor function for celestial body
-CelestialBody::CelestialBody(string name, Vector2 position, float size, int radius, Color color, string info) {
+CelestialBody::CelestialBody(string name, Vector2 position, float size, Color color, string info) {
 	this->name = name;
 	this->position = position;
-	this->radius = radius;
 	this->size = size;
 	this->color = color;
 	this->info = info;
@@ -16,7 +15,6 @@ CelestialBody::CelestialBody(string name, Vector2 position, float size, int radi
 CelestialBody::CelestialBody() {
 	name = "";
 	position = Vector2Zero(); // Vector with components value 0.0f.
-	radius = 0;
 	color = Color();
 	info = "";
 }
