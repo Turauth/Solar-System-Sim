@@ -4,25 +4,23 @@
 #include "raylib.h"
 #include "rlgl.h"
 #include "raymath.h"
-
 #include <string>
 using namespace std;
 
 class CelestialBody {
-private:
-
 public:
-	// Creates a new celestial body
-	CelestialBody(string name, Vector2 position, float size, Color color, string info);
-	
-	// Empty default constructor to prevent planet.cpp from throwing a fit
-	CelestialBody();
-
-	void CelestialBody::RenderInfo(Vector2 mousePosition) const;
-
+	// Define attributes that will be used by classes and the main function.
 	Vector2 position;
 	Color color;
 	float size;
 	string name;
 	string info;
+
+	// Define a specified constructor.
+	CelestialBody(string name, Vector2 position, float size, Color color, string info);
+  
+  void CelestialBody::RenderInfo(Vector2 mousePosition) const;
+	
+	// Define an empty default constructor to prevent planet.cpp from throwing a fit.
+	CelestialBody();
 };
