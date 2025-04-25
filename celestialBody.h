@@ -13,8 +13,7 @@ private:
 
 public:
 	// Creates a new celestial body
-	// (string: name, Vector2: position, int: mass, int: radius, Color: color, string: info)
-	CelestialBody(string, Vector2, int, int, Color, string);
+	CelestialBody(string name, Vector2 position, float size, int radius, Color color, string info);
 	
 	// Empty default constructor to prevent planet.cpp from throwing a fit
 	CelestialBody();
@@ -22,7 +21,7 @@ public:
 	Color color;
 
 	int radius;
-	int mass;
+	float size;
 
 	string name;
 	string info;
