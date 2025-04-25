@@ -70,21 +70,23 @@ int main()
         Vector2 mousePos = GetMousePosition();
 
         DrawCircleV(sun.position, sun.size, sun.color);
-        for (int i{0}; i < 11; ++i)
-        {            
-            if(i != 3) 
-                planets[i].updatePosition(sun);
-            if(i == 3)
-            {
-                planets[i].updatePosition(planets[i - 1]);
-                planets[i].updateMoon();
+        for (int i{0}; i < 10; ++i)
+        {   
+            if (!isPaused) {
+                if (i != 3)
+                    planets[i].updatePosition(sun);
+                if (i == 3)
+                {
+                    planets[i].updatePosition(planets[i - 1]);
+                    planets[i].updateMoon();
+                }
             }
 
             DrawCircleV(planets[i].position, planets[i].size, planets[i].color);
         }
       
         // Render information after planets have been drawn
-        for (int i{ 0 }; i < 11; ++i)
+        for (int i{ 0 }; i < 10; ++i)
         {
             planets[i].RenderInfo(mousePos);
         }
