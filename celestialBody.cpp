@@ -22,9 +22,10 @@ CelestialBody::CelestialBody()
 	info = "";
 }
 
-void CelestialBody::RenderInfo(Vector2 mousePos) const {
+void CelestialBody::RenderInfo(Vector2 mousePos, Vector2 position) const {
 	if (Vector2Distance(position, mousePos) <= size) {
 		Vector2 corner = { position.x - size - 20, position.y - (size + 90) };
+		std::cout << position.x << '\t' << position.y << std::endl;
 
 		DrawRectangle(corner.x, corner.y, 200, 80, ColorAlpha(BLACK, 0.75f));
 		DrawText(TextFormat("%s", info.c_str()), corner.x + 5, corner.y + 5, 20, RAYWHITE);

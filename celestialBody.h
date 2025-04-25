@@ -5,6 +5,7 @@
 #include "rlgl.h"
 #include "raymath.h"
 #include <string>
+#include <iostream>
 using namespace std;
 
 class CelestialBody {
@@ -19,7 +20,7 @@ public:
 	// Define a specified constructor.
 	CelestialBody(string name, Vector2 position, float size, Color color, string info);
   
-  void CelestialBody::RenderInfo(Vector2 mousePosition) const;
+	void RenderInfo(Vector2 mousePosition, Vector2 position) const;
 	
 	// Define an empty default constructor to prevent planet.cpp from throwing a fit.
 	CelestialBody();

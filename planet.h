@@ -1,5 +1,4 @@
 //Authors: C. Hohne, J. Woychuk
-
 #pragma once
 #include "celestialBody.h"
 

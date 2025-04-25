@@ -66,7 +66,6 @@ int main()
         BeginDrawing();
         ClearBackground(BLACK);
 
-        SetMouseOffset(0, 28);
         Vector2 mousePos = GetMousePosition();
 
         DrawCircleV(sun.position, sun.size, sun.color);
@@ -88,9 +87,10 @@ int main()
         // Render information after planets have been drawn
         for (int i{ 0 }; i < 10; ++i)
         {
-            planets[i].RenderInfo(mousePos);
+            planets[i].RenderInfo(mousePos, planets[i].position);
+            //std::cout << planets[i].position.x << '\t' << planets[i].position.x << std::endl; 
         }
-        sun.RenderInfo(mousePos);
+        sun.RenderInfo(mousePos, sun.position);
 
         EndDrawing();
     }
