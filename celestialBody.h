@@ -20,6 +20,8 @@ public:
 	// Define a specified constructor.
 	CelestialBody(string name, Vector2 position, float size, Color color, string info);
   
+	// Checks if the mouse position is overlapping with the celestial body and draws a textbox with its info
+	// (Vector2: mousePosition, Vector2: position)
 	void RenderInfo(Vector2 mousePosition, Vector2 position) const;
 	
 	// Define an empty default constructor to prevent planet.cpp from throwing a fit.

@@ -8,15 +8,15 @@
 
 int main()
 {
-    const int SCREENWIDTH = 1920;
-    const int SCREENHEIGHT = 1080;
+    const int SCREENWIDTH = 1600;
+    const int SCREENHEIGHT = 900;
 
     // values taken from https://terminalroot.com/how-to-create-a-solar-system-animation-with-cpp-and-raylib/.
     std::vector<float> planetRadii{80, 110, 165, 30, 225, 310, 430, 500, 505, 515};
     std::vector<float> planetSizes{10, 15, 20, 5, 18, 60, 55, 25, 22, 10};
     std::vector<float> planetVelocities{1.607f, 1.174f, 1.f, 5, .802f, .434f, .323f, .228f, .182f, .151f};
     std::vector<float> planetAngles{0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-    std::vector<Color> planetColors{BROWN, YELLOW, GREEN, WHITE, RED, ORANGE, RED, BLUE, BLUE, GRAY, YELLOW};
+    std::vector<Color> planetColors{BROWN, { 255, 200, 0, 255 }, DARKGREEN, WHITE, RED, ORANGE, RED, BLUE, DARKBLUE, GRAY, YELLOW};
     std::vector<std::string> names{"Mercury", "Venus", "Earth", "Moon", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune", "Pluto", "Sun"};
 
     std::vector<std::string> info{
@@ -71,6 +71,7 @@ int main()
         DrawCircleV(sun.position, sun.size, sun.color);
         for (int i{0}; i < 10; ++i)
         {   
+            // Only update positions if the program is unpaused
             if (!isPaused) {
                 if (i != 3)
                     planets[i].updatePosition(sun);
